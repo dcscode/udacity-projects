@@ -14,5 +14,5 @@ topic = ["robots","AI","farming","sports","food","pets","space","time travel","p
 
 title = ["black","red","blue","white","high","low","neon","dark","mega","ultra",
 		"nano","iron","steel","sweet","swour","sword","space","sea","city","love",
-		"truth","tower","castle","underground","arena","shield","honor","cloud"",
+		"truth","tower","castle","underground","arena","shield","honor","cloud",
 		"moon","sun","cat","dog","tiger","wolf","card"]
