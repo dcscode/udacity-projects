@@ -1,7 +1,7 @@
 # Data for videogame_generator function
 
 templates = ["TITLE TITLE, the next hit GENRE featuring TOPIC.",
-			"The latest GENRE, TITLE, TITLE, now with TOPIC.",
+			"The latest GENRE, TITLE TITLE, now with TOPIC.",
 			"A GENRE with TOPIC: TITLE TITLE.",
 			"TITLE TITLE: TOPIC GENRE!"]
 
@@ -16,3 +16,4 @@ title = ["black","red","blue","white","high","low","neon","dark","mega","ultra",
 		"nano","iron","steel","sweet","swour","sword","space","sea","city","love",
 		"truth","tower","castle","underground","arena","shield","honor","cloud",
 		"moon","sun","cat","dog","tiger","wolf","card"]
+title = [title.capitalize() for title in title]
