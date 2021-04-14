@@ -36,16 +36,16 @@ def get_order():
 	
 	
 def another_order():
-		another_meal = valid_order("Would you like to place another order?\n", "yes", "no")
-				if "no" in another_meal:
-					print_timer("Have a nice day!\n")
-				if "yes" in another_meal:
-					print_timer("I can take your order.\n")
-					get_order()
+	another_meal = valid_order("Would you like to place another order?\n", "yes", "no")
+	if "no" in another_meal:
+		print_timer("Have a nice day!\n")
+	if "yes" in another_meal:
+		print_timer("I can take your order.\n")
+		get_order()
 
 def order_food():
-		greeting()
-		get_order()
+	greeting()
+	get_order()
 
 order_food()
 	
