@@ -4,41 +4,49 @@ import time
 
 options = ["breakfast","brunch","lunch","snack","dinner","dessert"]
 
+breakfast = ["eggs","toast","waffle","hashbrowns"]
+
+lunch = ["sandwich","salad","tacos","burritos","pizza","soup"]
+
+mealtimes = [breakfast, lunch]
+
 def print_timer(string):
 	print(string)
 	time.sleep(2)
 
-def valid_order(prompt, options):
-	while True:
-		order = input(prompt).lower()
-		for option in options:
-			if option in order:
-				return order
-			else:
-				print_timer("I do not understand.")
+def valid_meal(prompt, options):
+    while True:
+	    meal = input(prompt).lower()
+	    for option in options:
+		    if option in meal:
+			    return meal
+	    print_timer("I do not understand.")
+    
+def valid_order(prompt, mealtimes):
+    while True:
+        order = input(prompt).lower()
+        for food in mealtimes:
+            if food in order
+                return order
+        print_timer("I do not understand.")
 
 def greeting():
 	print_timer("Hi, I'm Food Bot.")
 		
 def get_order():
-	meal = valid_order("What meal are you having?\n", options)
-	if "breakfast" in meal:
-		print_timer("What would you like for breakfast?\n")
-	elif "lunch" in meal:
-		print_timer("What would you like for lunch?\n")
-	elif "dinner" in meal:
-		print_timer("What would you like for dinner?\n")
-	elif "snack" in meal:
-		print_timer("What would you like to have for a snack?\n")
-	else:
-		print_timer("I do not understand.\n")
-	print_timer("Your order has been placed.")
+	meal = valid_meal("What meal are you having?\n", options)
+	if meal in options:
+		order = valid_order("What would you like for " + meal + "?\n", mealtimes)
+        if order in mealtimes:
+            print_timer("Your order has been placed.")
+	    else:
+		    print_timer("I do not understand.\n")
 	another_order()
 	
 	
 def another_order():
 	answer = ["yes","no"]
-	another_meal = valid_order("Would you like to place another order?\n",answer)
+	another_meal = valid_meal("Would you like to place another order?\n",answer)
 	if "no" in another_meal:
 		print_timer("Have a nice day!\n")
 	if "yes" in another_meal:
