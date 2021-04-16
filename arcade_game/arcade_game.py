@@ -1,4 +1,4 @@
-# arcade game
+# elevator game
 
 import time
 
@@ -29,5 +29,28 @@ while True:
         print_timer("You have " + str(tickets) + " tickets.")
     elif "neon dance" in game:
         print_timer("You play Neon Dance.")
+        result = "win"
+        print_timer("You win!")
+        tickets += 5
+        print_timer("The machine spits out 5 tickets.")
+        print_timer("You have " + str(tickets) + " tickets.")
     elif "sportsball" in game:
         print_timer("You play Sportsball")
+        player = random.randint(1,10)
+        sportsball = random.randint(1,10)
+        if player > sportsball:
+            print_timer("You: " + str(player))
+            print_timer("Sportsball: " + str(sportsball))
+            print_timer("You win!")
+            tickets += 20
+        elif player < sportsball:
+            print_timer("You: " + str(player))
+            print_timer("Sportsball: " + str(sportsball))
+            print_timer("You lose!")
+        else:
+            print_timer("You: " + str(player))
+            print_timer("Sportsball: " + str(sportsball))
+            print_timer("You tie!")
+            tickets += 10
+        print_timer("You have " + str(tickets) + " tickets.")
+    
