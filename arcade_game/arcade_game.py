@@ -43,6 +43,7 @@ while True:
             print_timer("Sportsball: " + str(sportsball))
             print_timer("You win!")
             tickets += 20
+            print_timer("The machine spits out 20 tickets.")
         elif player < sportsball:
             print_timer("You: " + str(player))
             print_timer("Sportsball: " + str(sportsball))
@@ -52,5 +53,9 @@ while True:
             print_timer("Sportsball: " + str(sportsball))
             print_timer("You tie!")
             tickets += 10
+            print_timer("The machine spits out 10 tickets.")
         print_timer("You have " + str(tickets) + " tickets.")
+    if tickets == 50:
+        print_timer("You have enough tickets for a large plush! You go home with your new friend.")
+        break
     
