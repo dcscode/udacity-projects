@@ -27,6 +27,7 @@ def greeting():
 		    "Quesadilla"
 		    "Pizza"
 		    "Grilled Cheese\n")
+	
 def get_order():
 	order = valid_order("What would you like to eat?\n", food)
 	if order in food:
