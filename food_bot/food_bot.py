@@ -21,12 +21,20 @@ def valid_order(prompt, order):
 	    print_timer("I do not understand.")
 
 def greeting():
-	print_timer("Hi, I'm Food Bot.")
-		
+	print_timer("Hi, I'm Food Bot." "Here is our menu:\n"
+		    "Burrito"
+		    "Tacos"
+		    "Quesadilla"
+		    "Pizza"
+		    "Grilled Cheese\n")
 def get_order():
 	order = valid_order("What would you like to eat?\n", food)
 	if order in food:
-		drink = valid_order("Would you like a drink?\n", answer)
+		drink = valid_order("Would you like a drink?\n"
+				    "Soda"
+				    "Horchata"
+				    "Water"
+				    "Tea/n", answer)
      	if "no" in drink:
 			print_timer(order.capitalize() + ".")
 		if "yes" in drink:
