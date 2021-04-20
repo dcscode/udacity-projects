@@ -2,8 +2,8 @@
 import time
 import random
  
-health = 15
-enemy = 15
+player_health = 15
+opponent_health = 15
 opponents = ["opponent 1", "opponent 2", "opponent 3", "opponent 4"]
 def print_timer(string):
     print(string)
@@ -19,6 +19,7 @@ while True:
         print_timer("You duck into the locker room. It's empty, but you spot something on the bench.")
         print_timer("A potion! You read the label.")
         print_timer("It'll increase your stamina! You down it and feel envigorated.\n(Your health points increase by 10)")
+        player_health += 15
         print_timer("You return to the arena entrance.")
         # add message if you already have potion
     if choice == "2":
@@ -39,11 +40,27 @@ while True:
         if weapon == "3":
             print_timer("You select the greatsword. It feels good in your hand.\n You step up to your opponent.")
         print_timer("Weapon in hand, it's time to fight.")
-        attack_first = input("Do you attack first? (Please enter y/n").lower()
+        attack_first = input("Do you attack first? (Please enter y/n)\n").lower()
         if attack_first == "y":
             print_timer("You lunge and swing your weapon!")
-            attack = random.randint(5, 25)
-            print_timer("You deal " + attack + " damage.")
+            player_damage = random.randint(5, 25)
+            print_timer("You deal " + str(player_damage) + " damage.")
+            opponent_health -= player_damage
+            print_timer(opponent + " health: " + str(opponent_health))
         if attack_first == "n":
             print_timer("You wait as you and your opponent circle each other.")
             print_timer("They lunge!")
+            opponent_damage = random.randint(5, 25)
+            print_timer("They deal" + str(opponent_damage) + " damage.")
+            player_health -= opponent_damage
+            print_timer("Your health: " + str(player_health))
+        while player_health > 0:
+            opponent_damage = random.randint(5, 25)
+            player_health -= opponent_damage
+            player_damage = random.randint(5, 25)
+            opponent_health -= player_damage
+            print_timer("Your health: " + str(player_health))
+            print_timer(opponent + " health: " + str(opponent_health))
+            if opponent_health == 0:
+                break
+            
