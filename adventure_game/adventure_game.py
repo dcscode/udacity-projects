@@ -1,8 +1,9 @@
+
 import time
 import random
  
-health = 50
-enemy = 50
+health = 15
+enemy = 15
 opponents = ["opponent 1", "opponent 2", "opponent 3", "opponent 4"]
 def print_timer(string):
     print(string)
@@ -17,7 +18,7 @@ while True:
     if choice == "1":
         print_timer("You duck into the locker room. It's empty, but you spot something on the bench.")
         print_timer("A potion! You read the label.")
-        print_timer("It'll increase your stamina! You down it and feel envigorated.\n(Your health points increase by 25)")
+        print_timer("It'll increase your stamina! You down it and feel envigorated.\n(Your health points increase by 10)")
         print_timer("You return to the arena entrance.")
         # add message if you already have potion
     if choice == "2":
@@ -37,3 +38,12 @@ while True:
             print_timer("You select the shortsword. It feels good in your hand.\n You step up to your opponent.")
         if weapon == "3":
             print_timer("You select the greatsword. It feels good in your hand.\n You step up to your opponent.")
+        print_timer("Weapon in hand, it's time to fight.")
+        attack_first = input("Do you attack first? (Please enter y/n").lower()
+        if attack_first == "y":
+            print_timer("You lunge and swing your weapon!")
+            attack = random.randint(5, 25)
+            print_timer("You deal " + attack + " damage.")
+        if attack_first == "n":
+            print_timer("You wait as you and your opponent circle each other.")
+            print_timer("They lunge!")
