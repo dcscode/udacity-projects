@@ -15,10 +15,11 @@ print_timer("You have come to the arena to claim it.")
 while True:
     choice = input("Enter 1 to visit the locker room.\nEnter 2 to step onto the field.\nWhich will you choose? (Please enter 1 or 2)\n")
     if choice == "1":
-        print_timer("You duck into the locker room. It's empty, but you spot something on the bench.")
+        print_timer("You duck into the locker room." "It's empty but you spot something on the bench.")
         print_timer("A potion! You read the label.")
         print_timer("It'll increase your stamina! You down it and feel envigorated.\n(Your health points increase by 10)")
-        player_health += 15
+        player_health += 10
+        print_timer("Your health: " + str(player_health))
         print_timer("You return to the arena entrance.")
         # add message if you already have potion
     if choice == "2":
@@ -61,14 +62,14 @@ while True:
             print_timer("Your health: " + str(player_health))
         while player_health > 0:
             opponent_damage = random.randint(5, 25)
-            print_timer("Your opponent deals " + str(opponent_damage) + ".")
+            print_timer("Your opponent deals " + str(opponent_damage) + " damage.")
             if opponent_damage > player_health:
                 print_timer("You are defeated.")
                 break
             player_health -= opponent_damage
             print_timer("Your health: " + str(player_health))
             player_damage = random.randint(5, 25)
-            print_timer("You deal " + str(player_damage) + ".")
+            print_timer("You deal " + str(player_damage) + " damage.")
             if player_damage > opponent_health:
                 print_timer("You defeated them!")
                 break
