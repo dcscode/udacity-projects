@@ -1,9 +1,8 @@
-
 import time
 import random
  
-player_health = 15
-opponent_health = 15
+player_health = 25
+opponent_health = 25
 opponents = ["opponent 1", "opponent 2", "opponent 3", "opponent 4"]
 def print_timer(string):
     print(string)
@@ -45,6 +44,9 @@ while True:
             print_timer("You lunge and swing your weapon!")
             player_damage = random.randint(5, 25)
             print_timer("You deal " + str(player_damage) + " damage.")
+            if player_damage > opponent_health:
+                print_timer("You defeated them!")
+                break
             opponent_health -= player_damage
             print_timer(opponent + " health: " + str(opponent_health))
         if attack_first == "n":
@@ -52,15 +54,25 @@ while True:
             print_timer("They lunge!")
             opponent_damage = random.randint(5, 25)
             print_timer("They deal" + str(opponent_damage) + " damage.")
+            if opponent_damage > player_health:
+                print_timer("You are defeated.")
+                break
             player_health -= opponent_damage
             print_timer("Your health: " + str(player_health))
         while player_health > 0:
             opponent_damage = random.randint(5, 25)
-            player_health -= opponent_damage
-            player_damage = random.randint(5, 25)
-            opponent_health -= player_damage
-            print_timer("Your health: " + str(player_health))
-            print_timer(opponent + " health: " + str(opponent_health))
-            if opponent_health == 0:
+            print_timer("Your opponent deals " + str(opponent_damage) + ".")
+            if opponent_damage > player_health:
+                print_timer("You are defeated.")
                 break
+            player_health -= opponent_damage
+            print_timer("Your health: " + str(player_health))
+            player_damage = random.randint(5, 25)
+            print_timer("You deal " + str(player_damage) + ".")
+            if player_damage > opponent_health:
+                print_timer("You defeated them!")
+                break
+            opponent_health -= player_damage
+            print_timer(opponent + " health: " + str(opponent_health))
+            
             
