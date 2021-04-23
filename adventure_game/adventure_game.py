@@ -1,9 +1,12 @@
 import time
 import random
- 
+
 player_health = 25
 opponent_health = 25
+inventory = []
 opponents = ["opponent 1", "opponent 2", "opponent 3", "opponent 4"]
+new_game = ""
+
 def print_timer(string):
     print(string)
     time.sleep(1)
@@ -13,16 +16,23 @@ def print_timer(string):
 while True:
     print_timer("You seek glory.")
     print_timer("You have come to the arena to claim it.")
+    player_health = 25
+    opponent_health = 25
+    inventory = []
+    new_game = ""
     while True:
         choice = input("Enter 1 to visit the locker room.\nEnter 2 to step onto the field.\nWhich will you choose? (Please enter 1 or 2)\n")
         if choice == "1":
-            print_timer("You duck into the locker room." "It's empty but you spot something on the bench.")
-            print_timer("A potion! You read the label.")
-            print_timer("It'll increase your stamina! You down it and feel envigorated.\n(Your health points increase by 10)")
-            player_health += 10
-            print_timer("Your health: " + str(player_health))
+            if "potion" in inventory:
+                print_timer("Just an empty locker room.")
+            else:
+                inventory.append("potion")
+                print_timer("You duck into the locker room." "It's empty but you spot something on the bench.")
+                print_timer("A potion! You read the label.")
+                print_timer("It'll increase your stamina! You down it and feel envigorated.\n(Your health points increase by 10)")
+                player_health += 10
+                print_timer("Your health: " + str(player_health))
             print_timer("You return to the arena entrance.")
-            # add message if you already have potion
         if choice == "2":
             print_timer("You step out into the sand to the roaring crowd, the sun high above.")
             opponent = random.choice(opponents)
@@ -55,8 +65,11 @@ while True:
                 print_timer("You wait as you and your opponent circle each other.")
                 print_timer("They lunge!")
                 opponent_damage = random.randint(5, 25)
-                print_timer("They deal" + str(opponent_damage) + " damage.")
+                print_timer("They deal " + str(opponent_damage) + " damage.")
                 if opponent_damage > player_health:
+                    print_timer("You are defeated.")
+                    break
+                elif player_health == 0:
                     print_timer("You are defeated.")
                     break
                 player_health -= opponent_damage
@@ -70,16 +83,26 @@ while True:
                 player_health -= opponent_damage
                 print_timer("Your health: " + str(player_health))
                 player_damage = random.randint(5, 25)
+                if player_health == 0:
+                    print_timer("You are defeated.")
+                    break
                 print_timer("You deal " + str(player_damage) + " damage.")
                 if player_damage > opponent_health:
                     print_timer("You defeated them! You're the champion! Glory forever!")
                     break
                 opponent_health -= player_damage
+                if opponent_health == 0:
+                    print_timer("You defeated them! You're the champion! Glory forever!")
+                    break
                 print_timer(opponent + " health: " + str(opponent_health))
-            new_game = input("Would you like to play again? Please enter 'again' to play again or 'no' to quit").lower()
+            new_game = input("Would you like to play again? Please enter 'again' to play again or 'no' to quit.\n").lower()
             if new_game == "again":
                 print_timer("Good luck!")
+                break
             if new_game == "no":
                 break
-            
+        if new_game == "again":
+            break
+    if new_game == "no":
+        break
             
