@@ -18,17 +18,20 @@ def intro():
 
 
 def weapon():
-    weapon = input("Select your weapon: (Please enter 1, 2, or 3)\n")
-    if weapon == "1":
-        print_timer("You select the large axe. It feels good in your hand.\n"
+    while True:
+        weapon = input("Select your weapon: (Please enter 1, 2, or 3)\n")
+        if weapon == "1":
+            print_timer("You select the large axe. It feels good in your hand.\n"
                     "You step up to your opponent.")
-    if weapon == "2":
-        print_timer("You select the shortsword. It feels good in your hand.\n"
+            break
+        if weapon == "2":
+            print_timer("You select the shortsword. It feels good in your hand.\n"
                     "You step up to your opponent.")
-    if weapon == "3":
-        print_timer("You select the greatsword. It feels good in your hand.\n"
+            break
+        if weapon == "3":
+            print_timer("You select the greatsword. It feels good in your hand.\n"
                     "You step up to your opponent.")
-    print_timer("Weapon in hand, it's time to fight.")
+            break
 
 
 def fight():
@@ -40,28 +43,31 @@ def fight():
         player_health = 35
     else:
         player_health = 25
-    attack_first = input("Do you attack first? (Please enter y/n)\n").lower()
-    if attack_first == "y":
-        print_timer("You lunge and swing your weapon!")
-        player_damage = random.randint(5, 25)
-        print_timer("You deal " + str(player_damage) + " damage.")
-        if player_damage > opponent_health:
-            print_timer("You defeated them! You're the champion!"
-                        " Glory forever!")
-        opponent_health -= player_damage
-        print_timer(opponent + " health: " + str(opponent_health))
-    if attack_first == "n":
-        print_timer("You wait as you and your opponent circle each other.")
-        print_timer("They lunge!")
-        opponent_damage = random.randint(5, 25)
-        print_timer("They deal " + str(opponent_damage) + " damage.")
-        if opponent_damage > player_health:
-            print_timer("You are defeated.")
-        elif player_health == 0:
-            print_timer("You are defeated.")
-            result = "loss"
-        player_health -= opponent_damage
-        print_timer("Your health: " + str(player_health))
+    while True:
+        attack_first = input("Do you attack first? (Please enter y/n)\n").lower()
+        if attack_first == "y":
+            print_timer("You lunge and swing your weapon!")
+            player_damage = random.randint(5, 25)
+            print_timer("You deal " + str(player_damage) + " damage.")
+            if player_damage > opponent_health:
+                print_timer("You defeated them! You're the champion!"
+                            " Glory forever!")
+            opponent_health -= player_damage
+            print_timer(opponent + " health: " + str(opponent_health))
+            break
+        elif attack_first == "n":
+            print_timer("You wait as you and your opponent circle each other.")
+            print_timer("They lunge!")
+            opponent_damage = random.randint(5, 25)
+            print_timer("They deal " + str(opponent_damage) + " damage.")
+            if opponent_damage > player_health:
+                print_timer("You are defeated.")
+            elif player_health == 0:
+                print_timer("You are defeated.")
+                result = "loss"
+            player_health -= opponent_damage
+            print_timer("Your health: " + str(player_health))
+            break
     while player_health > 0:
         opponent_damage = random.randint(5, 25)
         print_timer("Your opponent deals " + str(opponent_damage) + " damage.")
