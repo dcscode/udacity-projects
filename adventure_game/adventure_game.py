@@ -46,7 +46,8 @@ def fight():
         player_damage = random.randint(5, 25)
         print_timer("You deal " + str(player_damage) + " damage.")
         if player_damage > opponent_health:
-            print_timer("You defeated them!")
+            print_timer("You defeated them! You're the champion!"
+                        " Glory forever!")
         opponent_health -= player_damage
         print_timer(opponent + " health: " + str(opponent_health))
     if attack_first == "n":
@@ -76,12 +77,12 @@ def fight():
         print_timer("You deal " + str(player_damage) + " damage.")
         if player_damage > opponent_health:
             print_timer("You defeated them! You're the champion!"
-                        "Glory forever!")
+                        " Glory forever!")
             break
         opponent_health -= player_damage
         if opponent_health == 0:
             print_timer("You defeated them! You're the champion!"
-                        "Glory forever!")
+                        " Glory forever!")
             break
         print_timer(opponent + " health: " + str(opponent_health))
 
@@ -109,7 +110,7 @@ def room():
                         "roaring crowd, the sun high above.")
             print_timer("Before stepping further into the arena,"
                         " you turn to the weapon rack."
-                        "You have your pick of the lot.\n"
+                        " You have your pick of the lot.\n"
                         "Enter 1 for a large axe.\n"
                         "Enter 2 for a shortsword.\n"
                         "Enter 3 for a greatsword.\n")
