@@ -4,7 +4,8 @@ import random
 player_health = 25
 opponent_health = 25
 inventory = []
-opponents = ["Zav, Tower Knight", "Hawthorne the Noble", "Champion Iris", "The Mango"]
+opponents = ["Zav, Tower Knight", "Hawthorne the Noble",
+             "Champion Iris", "The Mango"]
 
 
 def print_timer(string):
@@ -21,16 +22,19 @@ def weapon():
     while True:
         weapon = input("Select your weapon: (Please enter 1, 2, or 3)\n")
         if weapon == "1":
-            print_timer("You select the large axe. It feels good in your hand.\n"
-                    "You step up to your opponent.")
+            print_timer("You select the large axe."
+                        " It feels good in your hand.\n"
+                        "You step up to your opponent.")
             break
         if weapon == "2":
-            print_timer("You select the shortsword. It feels good in your hand.\n"
-                    "You step up to your opponent.")
+            print_timer("You select the shortsword."
+                        " It feels good in your hand.\n"
+                        "You step up to your opponent.")
             break
         if weapon == "3":
-            print_timer("You select the greatsword. It feels good in your hand.\n"
-                    "You step up to your opponent.")
+            print_timer("You select the greatsword."
+                        " It feels good in your hand.\n"
+                        "You step up to your opponent.")
             break
 
 
@@ -44,7 +48,8 @@ def fight():
     else:
         player_health = 25
     while True:
-        attack_first = input("Do you attack first? (Please enter y/n)\n").lower()
+        attack_first = input("Do you attack first?"
+                             " (Please enter y/n)\n").lower()
         if attack_first == "y":
             print_timer("You lunge and swing your weapon!")
             player_damage = random.randint(5, 25)
