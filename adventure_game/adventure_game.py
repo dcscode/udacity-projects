@@ -27,7 +27,7 @@ def weapon():
         print_timer("You select the greatsword. It feels good in your hand.\n You step up to your opponent.")
     print_timer("Weapon in hand, it's time to fight.")
     
-def attack_first():
+def fight():
     opponent = random.choice(opponents)
     print_timer("The announcer shouts your name, and then another: " + opponent + ".")
     opponent_health = 25
@@ -100,7 +100,7 @@ def room():
                     "Enter 2 for a shortsword.\n"
                     "Enter 3 for a greatsword.\n")
             weapon()
-            attack_first()
+            fight()
             if "potion" in inventory:
                 inventory.remove("potion")
             new_game()
