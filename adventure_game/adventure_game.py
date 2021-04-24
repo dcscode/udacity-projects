@@ -4,7 +4,7 @@ import random
 player_health = 25
 opponent_health = 25
 inventory = []
-opponents = ["opponent 1", "opponent 2", "opponent 3", "opponent 4"]
+opponents = ["Zav, Tower Knight", "Hawthorne the Noble", "Champion Iris", "The Mango"]
 
 
 def print_timer(string):
