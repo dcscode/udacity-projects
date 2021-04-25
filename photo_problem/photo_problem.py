@@ -1,3 +1,7 @@
+#organizes photos with a date_place structure
+#creates directories based on place
+#moves photos to directory based on place in filename
+
 import os
 
 def extract_place(filename):
