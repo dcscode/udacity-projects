@@ -3,7 +3,6 @@ import requests
 r = requests.get('https://www.metaweather.com/api/location/2442327')
 #print(r.text)
 d = r.json()
-print(d)
 
 print("Six day weather forecast for Louisville, KY")
 for forecast in d["consolidated_weather"]:
