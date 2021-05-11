@@ -1,7 +1,8 @@
 import random
 moves = ['rock', 'paper', 'scissors']
 
-#The Player class is the parent class for all of the Players in this game
+"""The Player class is the parent class for all of the Players
+in this game"""
 
 
 class Player:
@@ -10,7 +11,9 @@ class Player:
 
     def learn(self, my_move, their_move):
         pass
-
+    
+    def score(self, num):
+        self.score = num
             
 class RandomPlayer(Player):
     def move(self):
@@ -35,12 +38,18 @@ class Game:
         self.p2.learn(move2, move1)
         if self.beats(move1, move2):
             print("Player One Wins!")
+            self.p1.score += 1
         elif self.beats(move2, move1):
             print("Player Two Wins!")
+            self.p2.score += 1
         else:
             print("Tie!")
+        print(f"Score: Player One {self.p1.score}, PLayer Two {self.p2.score}")
+        
         
     def play_game(self):
+        self.p1.score = 0
+        self.p2.score = 0
         print("Game start!")
         for round in range(3):
             print(f"Round {round}:")
