@@ -1,8 +1,7 @@
 import random
 moves = ['rock', 'paper', 'scissors']
 
-#The Player class is the parent class for all of the Players
-in this game
+#The Player class is the parent class for all of the Players in this game
 
 
 class Player:
