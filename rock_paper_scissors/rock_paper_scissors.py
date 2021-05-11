@@ -19,6 +19,11 @@ class RandomPlayer(Player):
     def move(self):
         return random.choice(moves)
 
+class HumanPlayer(Player):
+    def move(self):
+        move = input("rock, paper, scissors? > ").lower()
+        return move
+
 
 class Game:
     def __init__(self, p1, p2):
@@ -58,5 +63,5 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game(RandomPlayer(), RandomPlayer())
+    game = Game(HumanPlayer(), RandomPlayer())
     game.play_game()
