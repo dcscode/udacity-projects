@@ -107,7 +107,8 @@ class Game:
             print(f"Score: Player One {self.p1.score} "
                   f"PLayer Two {self.p2.score}")
 
+players = (Player(), ReflectPlayer(), RandomPlayer(),     CyclePlayer())
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), CyclePlayer())
+    game = Game(HumanPlayer(), random.choice(players))
     game.play_game()
