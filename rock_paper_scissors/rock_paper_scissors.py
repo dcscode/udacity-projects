@@ -1,19 +1,20 @@
 import random
 moves = ['rock', 'paper', 'scissors']
 
-"""The Player class is the parent class for all of the Players
-in this game"""
+#The Player class is the parent class for
+#all of the Players in this game
 
 
 class Player:
+    def __init__(self):
+        self.my_move = None
+        self.their_move = None
+        
     def move(self):
         return 'rock'
 
     def learn(self, my_move, their_move):
         pass
-    
-    def score(self, num):
-        self.score = num
             
 class RandomPlayer(Player):
     def move(self):
@@ -23,8 +24,28 @@ class HumanPlayer(Player):
     def move(self):
         move = input("rock, paper, scissors? > ").lower()
         return move
+        
+class ReflectPlayer(Player):
+    def move(self):
+        if self.my_move is None:
+            self.my_move = random.choice(moves)
+        return self.my_move
+    
+    def learn(self, my_move, their_move):
+        self.my_move = their_move
 
-
+class CyclePlayer(Player):
+    def move(self):
+        if self.my_move is None:
+            self.my_move = random.choice(moves)
+        elif self.my_move is moves[0]:
+            self.my_move = moves[1]
+        elif self
+        
+    def learn(self, my_move, their_move):
+        self.my_move = my_move
+        self.their_move = their_move
+        
 class Game:
     def __init__(self, p1, p2):
         self.p1 = p1
@@ -63,5 +84,5 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), RandomPlayer())
+    game = Game(HumanPlayer(), ReflectPlayer())
     game.play_game()
