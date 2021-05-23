@@ -1,6 +1,7 @@
 import random
 moves = ['rock', 'paper', 'scissors']
 
+
 class Player:
     def __init__(self):
         self.my_move = None
@@ -80,10 +81,11 @@ class Game:
         print(f"Score: Player One {self.p1.score}, PLayer Two {self.p2.score}")
 
     def play_game(self):
+        self.round = 5
         self.p1.score = 0
         self.p2.score = 0
         print("Game start!")
-        for round in range(5):
+        for round in range(self.round):
             print(f"Round {round}:")
             self.play_round()
             if self.p1.score >= 3 or self.p2.score >= 3:
@@ -108,3 +110,4 @@ players = (Player(), ReflectPlayer(), RandomPlayer(),     CyclePlayer())
 if __name__ == '__main__':
     game = Game(HumanPlayer(), random.choice(players))
     game.play_game()
+    
